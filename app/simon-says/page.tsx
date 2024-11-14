@@ -12,7 +12,7 @@ import {
 import Link from "next/link";
 
 export default function SimonSays() {
-  const highScore = localStorage.getItem("highScore") || 0;
+  const highScore = localStorage.getItem("highScore-simon") || 0;
   return (
     <Card>
       <CardHeader>

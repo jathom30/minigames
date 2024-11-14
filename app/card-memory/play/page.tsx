@@ -1,7 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { createRandomSequence, icons, TIcon } from "../utils";
+import { useEffect, useMemo, useState } from "react";
+import { createRandomSequence, icons } from "../utils";
 import { MemoryCardButton } from "../memory-card-button";
 import { Button } from "@/components/ui/button";
 import {
@@ -21,6 +21,19 @@ export default function CardMemoryPlay() {
   const [seed, setSeed] = useState(0);
   const iconPairs = useMemo(() => createRandomSequence(icons), [seed]);
   const winner = icons.length === foundPairIds.length;
+  const bestScore = localStorage.getItem("bestScore-card");
+
+  useEffect(() => {
+    // handle best score
+    const handleBestScore = (newSeqLength: number) => {
+      if (newSeqLength < (Number(bestScore) || Infinity)) {
+        localStorage.setItem("bestScore-card", `${turns}`);
+      }
+    };
+    if (winner) {
+      handleBestScore(turns);
+    }
+  }, [bestScore, turns, winner]);
 
   const handleCardClick = (cardId: string) => {
     const pair = selectedCardIds.concat(cardId);
@@ -52,6 +65,7 @@ export default function CardMemoryPlay() {
   return (
     <div className="space-y-2">
       <p>Turn: {turns}</p>
+      {bestScore ? <p>Best Score: {bestScore}</p> : null}
       <div className="grid gap-1 grid-cols-3">
         {iconPairs.map(({ icon, id }) => (
           <MemoryCardButton
@@ -68,7 +82,7 @@ export default function CardMemoryPlay() {
       {winner && (
         <Card>
           <CardHeader>
-            <CardTitle>You've won!</CardTitle>
+            <CardTitle>You&apos;ve won!</CardTitle>
             <CardDescription>I always thought you could do it.</CardDescription>
           </CardHeader>
           <CardContent>For the record, we never doubted you.</CardContent>

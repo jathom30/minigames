@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -10,7 +11,7 @@ import {
 import Link from "next/link";
 
 export default function CardMemory() {
-  const highScore = 0;
+  const bestScore = localStorage.getItem("bestScore-card");
   return (
     <Card>
       <CardHeader>
@@ -22,9 +23,12 @@ export default function CardMemory() {
           Flip over two cards at a time to find a match. The less mistakes you
           make, the higher your score!
         </p>
-        <p>
-          Your current high score is <b>{highScore}</b>! Think you can beat it?
-        </p>
+        {bestScore ? (
+          <p>
+            Your current best score is <b>{bestScore}</b>! Think you can beat
+            it?
+          </p>
+        ) : null}
       </CardContent>
       <CardFooter>
         <Button asChild>

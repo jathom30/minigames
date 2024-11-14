@@ -29,6 +29,11 @@ export default function Home() {
                   <Link href="card-memory">Card Memory</Link>
                 </Button>
               </li>
+              <li>
+                <Button variant="secondary" asChild>
+                  <Link href="trivia">Trivia</Link>
+                </Button>
+              </li>
             </ul>
           </CardContent>
         </Card>

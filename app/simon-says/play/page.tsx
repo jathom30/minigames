@@ -11,14 +11,14 @@ export default function PlayingSimonSays() {
   const [sequence, setSequence] = useState<Tile[]>([]);
   const [userSequence, setUserSequence] = useState<string[]>([]);
   const [activeTile, setActiveTile] = useState<Tile | null>(null);
-  const highScore = localStorage.getItem("highScore") || 0;
+  const highScore = localStorage.getItem("highScore-simon") || 0;
   const router = useRouter();
 
   // handle high score
   const handleHighScore = useCallback(
     (newSeqLength: number) => {
       if (newSeqLength > Number(highScore)) {
-        localStorage.setItem("highScore", `${sequence.length}`);
+        localStorage.setItem("highScore-simon", `${sequence.length}`);
       }
     },
     [highScore, sequence.length]
