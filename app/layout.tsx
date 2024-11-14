@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuList,
+} from "@/components/ui/navigation-menu";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -28,7 +35,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <NavigationMenu className="p-2">
+          <NavigationMenuList>
+            <NavigationMenuItem asChild>
+              <Button variant="outline" asChild>
+                <Link href="/">Home</Link>
+              </Button>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+        <div className="p-2">{children}</div>
       </body>
     </html>
   );
