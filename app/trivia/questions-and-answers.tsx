@@ -10,6 +10,12 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
+const decodeHtmlEntities = (encodedString: string): string => {
+  const parser = new DOMParser();
+  const dom = parser.parseFromString(encodedString, "text/html");
+  return dom.documentElement.textContent || "";
+};
+
 export const QuestionsAndAnswers = ({
   questions,
 }: {
@@ -75,7 +81,9 @@ export const QuestionsAndAnswers = ({
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
-          <h2 className="text-lg font-semibold">{question.question}</h2>
+          <h2 className="text-lg font-semibold">
+            {decodeHtmlEntities(question.question)}
+          </h2>
           <div className="flex flex-col gap-2">
             {answers.map((answer) => (
               <Button
@@ -83,7 +91,7 @@ export const QuestionsAndAnswers = ({
                 variant="outline"
                 onClick={() => handleAnswer(answer)}
               >
-                {answer}
+                {decodeHtmlEntities(answer)}
               </Button>
             ))}
           </div>

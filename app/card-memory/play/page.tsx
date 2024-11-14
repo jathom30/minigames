@@ -62,6 +62,24 @@ export default function CardMemoryPlay() {
     setTurns(0);
   };
 
+  if (winner) {
+    return (
+      <Card>
+        <CardHeader>
+          <CardTitle>You&apos;ve won!</CardTitle>
+          <CardDescription>I always thought you could do it.</CardDescription>
+        </CardHeader>
+        <CardContent>For the record, we never doubted you.</CardContent>
+        <CardFooter className="gap-2">
+          <Button onClick={handleReset}>Play again</Button>
+          <Button asChild variant="outline">
+            <Link href="/card-memory">Back to game home</Link>
+          </Button>
+        </CardFooter>
+      </Card>
+    );
+  }
+
   return (
     <div className="space-y-2">
       <p>Turn: {turns}</p>
@@ -79,21 +97,6 @@ export default function CardMemoryPlay() {
           />
         ))}
       </div>
-      {winner && (
-        <Card>
-          <CardHeader>
-            <CardTitle>You&apos;ve won!</CardTitle>
-            <CardDescription>I always thought you could do it.</CardDescription>
-          </CardHeader>
-          <CardContent>For the record, we never doubted you.</CardContent>
-          <CardFooter className="gap-2">
-            <Button onClick={handleReset}>Play again</Button>
-            <Button asChild variant="outline">
-              <Link href="/card-memory">Back to game home</Link>
-            </Button>
-          </CardFooter>
-        </Card>
-      )}
     </div>
   );
 }
