@@ -18,6 +18,7 @@ export default function Home() {
       <main className="p-4 space-y-8">
         <div className="space-y-4">
           <Image
+            className="rounded-lg"
             src={"/jeff-head.jpeg"}
             alt="Jeff Thomas"
             width={500}

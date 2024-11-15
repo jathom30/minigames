@@ -15,34 +15,32 @@ import { Menu } from "lucide-react";
 export const MenuSheet = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-background p-2">
-      <Sheet open={isOpen} onOpenChange={setIsOpen}>
-        <SheetTrigger asChild>
-          <Button variant="ghost">
-            <Menu />
+    <Sheet open={isOpen} onOpenChange={setIsOpen}>
+      <SheetTrigger asChild>
+        <Button variant="ghost">
+          <Menu />
+        </Button>
+      </SheetTrigger>
+      <SheetContent side="left">
+        <SheetHeader>
+          <SheetTitle>Main Nav</SheetTitle>
+          <SheetDescription>Where do you want to go?</SheetDescription>
+        </SheetHeader>
+        <div className="flex flex-col gap-1">
+          <Button onClick={() => setIsOpen(false)} variant="link" asChild>
+            <Link href="/">Home</Link>
           </Button>
-        </SheetTrigger>
-        <SheetContent side="left">
-          <SheetHeader>
-            <SheetTitle>Main Nav</SheetTitle>
-            <SheetDescription>Where do you want to go?</SheetDescription>
-          </SheetHeader>
-          <div className="flex flex-col gap-1">
-            <Button onClick={() => setIsOpen(false)} variant="link" asChild>
-              <Link href="/">Home</Link>
-            </Button>
-            <Button onClick={() => setIsOpen(false)} variant="link" asChild>
-              <Link href="/#skills">Skills</Link>
-            </Button>
-            <Button onClick={() => setIsOpen(false)} variant="link" asChild>
-              <Link href="/#projects">Projects</Link>
-            </Button>
-            <Button onClick={() => setIsOpen(false)} variant="link" asChild>
-              <Link href="/#mini-games">Minigames</Link>
-            </Button>
-          </div>
-        </SheetContent>
-      </Sheet>
-    </header>
+          <Button onClick={() => setIsOpen(false)} variant="link" asChild>
+            <Link href="/#skills">Skills</Link>
+          </Button>
+          <Button onClick={() => setIsOpen(false)} variant="link" asChild>
+            <Link href="/#projects">Projects</Link>
+          </Button>
+          <Button onClick={() => setIsOpen(false)} variant="link" asChild>
+            <Link href="/#mini-games">Minigames</Link>
+          </Button>
+        </div>
+      </SheetContent>
+    </Sheet>
   );
 };
