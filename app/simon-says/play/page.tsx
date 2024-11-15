@@ -11,12 +11,23 @@ export default function PlayingSimonSays() {
   const [sequence, setSequence] = useState<Tile[]>([]);
   const [userSequence, setUserSequence] = useState<string[]>([]);
   const [activeTile, setActiveTile] = useState<Tile | null>(null);
-  const highScore = localStorage.getItem("highScore-simon") || 0;
   const router = useRouter();
+  const [highScore, setHighScore] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Check if running on the client-side
+      const storedValue = localStorage.getItem("highScore-simon");
+      if (storedValue) {
+        setHighScore(storedValue);
+      }
+    }
+  }, []);
 
   // handle high score
   const handleHighScore = useCallback(
     (newSeqLength: number) => {
+      if (typeof window === "undefined") return;
       if (newSeqLength > Number(highScore)) {
         localStorage.setItem("highScore-simon", `${sequence.length}`);
       }

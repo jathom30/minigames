@@ -10,9 +10,20 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function SimonSays() {
-  const highScore = localStorage.getItem("highScore-simon") || 0;
+  const [highScore, setHighScore] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Check if running on the client-side
+      const storedValue = localStorage.getItem("highScore-simon");
+      if (storedValue) {
+        setHighScore(storedValue);
+      }
+    }
+  }, []);
   return (
     <Card>
       <CardHeader>

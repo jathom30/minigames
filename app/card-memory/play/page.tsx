@@ -22,9 +22,20 @@ export default function CardMemoryPlay() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const iconPairs = useMemo(() => createRandomSequence(icons), [seed]);
   const winner = icons.length === foundPairIds.length;
-  const bestScore = localStorage.getItem("bestScore-card");
+  const [bestScore, setBestScore] = useState<string | null>(null);
 
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Check if running on the client-side
+      const storedValue = localStorage.getItem("bestScore-card");
+      if (storedValue) {
+        setBestScore(storedValue);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
     // handle best score
     const handleBestScore = (newSeqLength: number) => {
       if (newSeqLength < (Number(bestScore) || Infinity)) {

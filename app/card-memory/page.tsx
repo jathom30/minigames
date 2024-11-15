@@ -9,9 +9,20 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function CardMemory() {
-  const bestScore = localStorage.getItem("bestScore-card");
+  const [bestScore, setBestScore] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Check if running on the client-side
+      const storedValue = localStorage.getItem("bestScore-card");
+      if (storedValue) {
+        setBestScore(storedValue);
+      }
+    }
+  }, []);
   return (
     <Card>
       <CardHeader>
