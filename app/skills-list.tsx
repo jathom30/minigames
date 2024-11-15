@@ -1,0 +1,143 @@
+import { FaReact, FaNodeJs, FaFly } from "react-icons/fa";
+import {
+  SiNextdotjs,
+  SiRemix,
+  SiTailwindcss,
+  SiPrisma,
+  SiTypescript,
+  SiJavascript,
+  SiReactrouter,
+  SiReactquery,
+  SiReacttable,
+  SiVite,
+  SiDocker,
+  SiVitest,
+  SiWebpack,
+  SiMui,
+  SiZod,
+  SiAxios,
+  SiGit,
+  SiGithub,
+  SiSqlite,
+  SiFigma,
+  SiHtml5,
+  SiCss3,
+  SiSass,
+  SiJest,
+  SiRedux,
+} from "react-icons/si";
+
+export const skillsList = [
+  { label: "React", link: "https://react.dev/", Icon: FaReact },
+  { label: "Next.JS", link: "https://nextjs.org", Icon: SiNextdotjs },
+  { label: "Remix", link: "https://remix.run", Icon: SiRemix },
+  { label: "Tailwind", link: "https://tailwindcss.com", Icon: SiTailwindcss },
+  {
+    label: "TypeScript",
+    link: "https://www.typescriptlang.org",
+    Icon: SiTypescript,
+  },
+  {
+    label: "JaveScript",
+    link: "https://www.javascript.com",
+    Icon: SiJavascript,
+  },
+  { label: "Node", link: "https://nodejs.org/en", Icon: FaNodeJs },
+  { label: "Fly.io", link: "https://fly.io", Icon: FaFly },
+  { label: "Prisma", link: "https://www.prisma.io/", Icon: SiPrisma },
+  {
+    label: "React Router",
+    link: "https://reactrouter.com/en/main",
+    Icon: SiReactrouter,
+  },
+  {
+    label: "Tanstack Query",
+    link: "https://tanstack.com/query/latest",
+    Icon: SiReactquery,
+  },
+  {
+    label: "Tanstack Table",
+    link: "https://tanstack.com/table/latest",
+    Icon: SiReacttable,
+  },
+  {
+    label: "Vite",
+    link: "https://vite.dev",
+    Icon: SiVite,
+  },
+  {
+    label: "Docker",
+    link: "https://www.docker.com/",
+    Icon: SiDocker,
+  },
+  {
+    label: "Vitest",
+    link: "https://vitest.dev/",
+    Icon: SiVitest,
+  },
+  {
+    label: "Webpack",
+    link: "https://webpack.js.org/",
+    Icon: SiWebpack,
+  },
+  {
+    label: "Material UI",
+    link: "https://mui.com/material-ui/",
+    Icon: SiMui,
+  },
+  {
+    label: "Zod",
+    link: "https://zod.dev/",
+    Icon: SiZod,
+  },
+  {
+    label: "Axios",
+    link: "https://axios-http.com/",
+    Icon: SiAxios,
+  },
+  {
+    label: "Git",
+    link: "https://git-scm.com/",
+    Icon: SiGit,
+  },
+  {
+    label: "Github",
+    link: "https://github.com/",
+    Icon: SiGithub,
+  },
+  {
+    label: "SQLite",
+    link: "https://www.sqlite.org/",
+    Icon: SiSqlite,
+  },
+  {
+    label: "Figma",
+    link: "https://www.figma.com/",
+    Icon: SiFigma,
+  },
+  {
+    label: "HTML5",
+    link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+    Icon: SiHtml5,
+  },
+  {
+    label: "CSS3",
+    link: "https://www.css3.info/",
+    Icon: SiCss3,
+  },
+  {
+    label: "Sass/SCSS",
+    link: "https://sass-lang.com/",
+    Icon: SiSass,
+  },
+  {
+    label: "Jest",
+    link: "https://jestjs.io/",
+    Icon: SiJest,
+  },
+  {
+    label: "Redux",
+    link: "https://redux.js.org/",
+    Icon: SiRedux,
+  },
+];
