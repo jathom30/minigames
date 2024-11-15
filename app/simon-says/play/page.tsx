@@ -1,14 +1,10 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { PlayerIndicator } from "../player-indicator";
 import { SimonButton } from "../simon-button";
 import { getRandomTile, Tile, tiles } from "../utils";
 import { useRouter } from "next/navigation";
-import fmaj from "@/public/sounds/Fmaj.mp3";
-import fmin from "@/public/sounds/Fmin.mp3";
-import cmaj from "@/public/sounds/Cmaj.mp3";
-import bminb5 from "@/public/sounds/Bminb5.mp3";
 
 export default function PlayingSimonSays() {
   const [turn, setTurn] = useState<"user" | "simon" | "playing">("simon");
@@ -49,19 +45,6 @@ export default function PlayingSimonSays() {
     setTimeout(() => setActiveTile(null), 300);
   };
 
-  const chord = useMemo(() => {
-    const fMaj = new Audio(fmaj);
-    const fMin = new Audio(fmin);
-    const cMaj = new Audio(cmaj);
-    const bMinb5 = new Audio(bminb5);
-    return {
-      q: fMaj,
-      w: fMin,
-      a: cMaj,
-      s: bMinb5,
-    };
-  }, []);
-
   // play sequence on playing turn (after simon's turn)
   useEffect(() => {
     if (turn !== "playing") return;
@@ -69,9 +52,6 @@ export default function PlayingSimonSays() {
     // set active tile for 500 ms, then move to next tile in sequence
     const interval = setInterval(() => {
       activateTile(sequence[i]);
-      if (sequence[i]) {
-        chord[sequence[i]].play();
-      }
       i++;
       if (i > sequence.length) {
         clearInterval(interval);
@@ -80,16 +60,13 @@ export default function PlayingSimonSays() {
       }
     }, 500);
     return () => clearInterval(interval);
-  }, [chord, sequence, turn]);
+  }, [sequence, turn]);
 
   // handle user click
   const handleUserClick = useCallback(
     (tile: Tile) => {
       if (turn !== "user") return;
       activateTile(tile);
-      if (tile) {
-        chord[tile].play();
-      }
       const newUserSequence = [...userSequence, tile];
       sequence.forEach((tile, i) => {
         if (newUserSequence[i] && newUserSequence[i] !== tile) {
@@ -109,7 +86,7 @@ export default function PlayingSimonSays() {
         return newuserSequence;
       });
     },
-    [activeTile, chord, router, sequence, turn, userSequence]
+    [router, sequence, turn, userSequence]
   );
 
   // handle keyboard input
