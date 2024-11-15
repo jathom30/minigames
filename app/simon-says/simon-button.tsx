@@ -1,9 +1,3 @@
-import { useEffect } from "react";
-import c from "@/public/sounds/c.mp3";
-import e from "@/public/sounds/e.mp3";
-import g from "@/public/sounds/g.mp3";
-import b from "@/public/sounds/b.mp3";
-
 export const SimonButton = ({
   keyCode,
   onClick,
@@ -23,22 +17,6 @@ export const SimonButton = ({
   const handleClick = () => {
     onClick();
   };
-
-  useEffect(() => {
-    const eNote = new Audio(e);
-    const gNote = new Audio(g);
-    const cNote = new Audio(c);
-    const bNote = new Audio(b);
-    if (!isActive) return;
-    const chord = {
-      q: cNote,
-      w: eNote,
-      a: gNote,
-      s: bNote,
-    };
-    if (!chord[keyCode]) return;
-    chord[keyCode].play();
-  }, [isActive, keyCode]);
 
   return (
     <button
