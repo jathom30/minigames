@@ -33,10 +33,7 @@ export default function Home() {
             Jeff Thomas
           </h1>
           <blockquote className="mt-6 border-l-2 pl-6 italic">
-            Frontend Developer fluent in React, TypeScript, Tailwind, and more.{" "}
-            <Button variant="link" className="text-primary" asChild>
-              <Link href="#">See my full skill list here.</Link>
-            </Button>
+            Frontend Developer fluent in React, TypeScript, Tailwind, and more.
           </blockquote>
         </div>
         <Card id="about-me">
