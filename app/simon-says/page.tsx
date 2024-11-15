@@ -35,9 +35,12 @@ export default function SimonSays() {
           Follow the patterns Simon creates. If you mess up, you start back at
           zero. So pay attention!
         </p>
-        <p>
-          Your current high score is <b>{highScore}</b>! Think you can beat it?
-        </p>
+        {highScore ? (
+          <p>
+            Your current high score is <b>{highScore}</b>! Think you can beat
+            it?
+          </p>
+        ) : null}
       </CardContent>
       <CardFooter>
         <Button asChild>
