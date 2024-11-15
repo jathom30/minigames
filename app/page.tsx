@@ -33,7 +33,7 @@ export default function Home() {
             Jeff Thomas
           </h1>
           <blockquote className="mt-6 border-l-2 pl-6 italic">
-            Frontend Developer fleunt in React, TypeScript, Tailwind, and more.{" "}
+            Frontend Developer fluent in React, TypeScript, Tailwind, and more.{" "}
             <Button variant="link" className="text-primary" asChild>
               <Link href="#">See my full skill list here.</Link>
             </Button>
@@ -104,7 +104,10 @@ export default function Home() {
         <Card id="projects">
           <CardHeader>
             <CardTitle>Projects</CardTitle>
-            <CardDescription>Check out some of my projects!</CardDescription>
+            <CardDescription>
+              Check out some of my projects! I promise they're more impressive
+              than this site.
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <ul className="space-y-8">
@@ -138,7 +141,7 @@ export default function Home() {
         <Card id="mini-games">
           <CardHeader>
             <CardTitle>Minigames</CardTitle>
-            <CardDescription>Select your game!</CardDescription>
+            <CardDescription>Select your game</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <p>

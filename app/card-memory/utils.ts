@@ -1,29 +1,27 @@
-export type TIcon = { icon: string; id: string };
+import { IconType } from "react-icons";
+import { FaReact } from "react-icons/fa";
+import {
+  SiJavascript,
+  SiNextdotjs,
+  SiRemix,
+  SiTailwindcss,
+  SiTypescript,
+} from "react-icons/si";
+
+export type TIcon = { Icon: IconType; id: string };
 
 export const icons: TIcon[] = [
+  { id: "https://react.dev/", Icon: FaReact },
+  { id: "https://nextjs.org", Icon: SiNextdotjs },
+  { id: "https://remix.run", Icon: SiRemix },
+  { id: "https://tailwindcss.com", Icon: SiTailwindcss },
   {
-    icon: "🐶",
-    id: "dog",
+    id: "https://www.typescriptlang.org",
+    Icon: SiTypescript,
   },
   {
-    icon: "🐱",
-    id: "cat",
-  },
-  {
-    icon: "🐭",
-    id: "mouse",
-  },
-  {
-    icon: "🐹",
-    id: "hamster",
-  },
-  {
-    icon: "🐰",
-    id: "rabbit",
-  },
-  {
-    icon: "🦊",
-    id: "fox",
+    id: "https://www.javascript.com",
+    Icon: SiJavascript,
   },
 ];
 

@@ -85,10 +85,10 @@ export default function CardMemoryPlay() {
       <p>Turn: {turns}</p>
       {bestScore ? <p>Best Score: {bestScore}</p> : null}
       <div className="grid gap-1 grid-cols-3">
-        {iconPairs.map(({ icon, id }) => (
+        {iconPairs.map(({ Icon, id }) => (
           <MemoryCardButton
             key={id}
-            cardIcon={icon}
+            CardIcon={Icon}
             onClick={() => handleCardClick(id)}
             isFlipped={
               selectedCardIds.includes(id) ||
