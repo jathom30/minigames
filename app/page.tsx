@@ -135,7 +135,7 @@ export default function Home() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card id="contact">
           <CardHeader>
             <CardTitle>Contact</CardTitle>
             <CardDescription>

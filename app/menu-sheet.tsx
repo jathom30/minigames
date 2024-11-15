@@ -37,6 +37,9 @@ export const MenuSheet = () => {
             <Link href="/#projects">Projects</Link>
           </Button>
           <Button onClick={() => setIsOpen(false)} variant="link" asChild>
+            <Link href="/#contact">Contact</Link>
+          </Button>
+          <Button onClick={() => setIsOpen(false)} variant="link" asChild>
             <Link href="/#mini-games">Minigames</Link>
           </Button>
         </div>
