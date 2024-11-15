@@ -105,8 +105,8 @@ export default function Home() {
           <CardHeader>
             <CardTitle>Projects</CardTitle>
             <CardDescription>
-              Check out some of my projects! I promise they're more impressive
-              than this site.
+              Check out some of my projects! I promise they&apos;re more
+              impressive than this site.
             </CardDescription>
           </CardHeader>
           <CardContent>

@@ -19,6 +19,7 @@ export default function CardMemoryPlay() {
   const [selectedCardIds, setSelectedCardIds] = useState<string[]>([]);
   const [foundPairIds, setFoundPairIds] = useState<string[]>([]);
   const [seed, setSeed] = useState(0);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const iconPairs = useMemo(() => createRandomSequence(icons), [seed]);
   const winner = icons.length === foundPairIds.length;
   const bestScore = localStorage.getItem("bestScore-card");
