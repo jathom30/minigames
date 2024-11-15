@@ -1,17 +1,17 @@
-import { QuestionsAndAnswers } from "./questions-and-answers";
-import { TTrivia } from "./utils";
+import { CategorySelect } from "./category-select";
+import { TTriviaCategory } from "./utils";
 
 export default async function Trivia() {
-  const data = await fetch(
-    "https://opentdb.com/api.php?amount=10&category=12&difficulty=medium&type=multiple"
-  );
-  const { results } = (await data.json()) as { results: TTrivia[] };
+  const categoryData = await fetch("https://opentdb.com/api_category.php");
+  const { trivia_categories } = (await categoryData.json()) as {
+    trivia_categories: TTriviaCategory[];
+  };
   return (
-    <div>
+    <div className="space-y-2">
       <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
         Trivia
       </h1>
-      {results?.length ? <QuestionsAndAnswers questions={results} /> : null}
+      <CategorySelect categories={trivia_categories} />
     </div>
   );
 }

@@ -3,3 +3,8 @@ export type TTrivia = {
   correct_answer: string;
   incorrect_answers: string[];
 };
+
+export type TTriviaCategory = {
+  id: number;
+  name: string;
+};
