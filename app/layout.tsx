@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-background`}
       >
         <ThemeProvider
           attribute="class"
@@ -41,7 +41,12 @@ export default function RootLayout({
             <MenuSheet />
             <ModeToggle />
           </header>
-          {children}
+          <div className="min-h-full">{children}</div>
+          <footer className="sticky bottom-0 w-full border-t border-border bg-background p-2">
+            <p className="text-sm text-gray-500">
+              &copy; {new Date().getFullYear()} Jeff Thomas
+            </p>
+          </footer>
         </ThemeProvider>
       </body>
     </html>
