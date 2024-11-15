@@ -135,6 +135,40 @@ export default function Home() {
           </CardContent>
         </Card>
 
+        <Card>
+          <CardHeader>
+            <CardTitle>Contact</CardTitle>
+            <CardDescription>
+              Want to get in touch? Here&apos;s how!
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p>
+              You can email me at{" "}
+              <Button variant="link" asChild>
+                <Link href="mailto:jathom30@gmail.com">jathom30@gmail.com</Link>
+              </Button>
+            </p>
+            <p>
+              You can also find me on{" "}
+              <Button variant="link" asChild>
+                <Link
+                  target="_blank"
+                  href="https://www.linkedin.com/in/jeff-a-thomas/"
+                >
+                  LinkedIn
+                </Link>
+              </Button>{" "}
+              and{" "}
+              <Button variant="link" asChild>
+                <Link target="_blank" href="https://github.com/jathom30">
+                  Github
+                </Link>
+              </Button>
+            </p>
+          </CardContent>
+        </Card>
+
         <Card id="mini-games">
           <CardHeader>
             <CardTitle>Minigames</CardTitle>

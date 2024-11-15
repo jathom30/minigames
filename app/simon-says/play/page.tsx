@@ -112,7 +112,7 @@ export default function PlayingSimonSays() {
   }, [handleUserClick]);
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-2 max-w-lg m-auto">
       <div className="flex justify-between">
         <span>Current Score: {sequence.length - 1}</span>
         <span>High Score: {highScore}</span>

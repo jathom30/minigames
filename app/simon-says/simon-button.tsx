@@ -18,10 +18,24 @@ export const SimonButton = ({
     onClick();
   };
 
+  const roundedCorner = {
+    q: "rounded-tl-full",
+    w: "rounded-tr-full",
+    a: "rounded-bl-full",
+    s: "rounded-br-full",
+  }[keyCode];
+
+  const alignment = {
+    q: "justify-end items-end",
+    w: "justify-start items-end",
+    a: "justify-end items-start",
+    s: "justify-start items-start",
+  }[keyCode];
+
   return (
     <button
       onClick={handleClick}
-      className={`text-white flex items-start justify-start h-[25vh] min-h-28 border rounded-md p-1 ${color} hover:shadow-lg`}
+      className={`text-white flex ${alignment} h-[25vh] min-h-28 border rounded-md ${roundedCorner} p-1 ${color} hover:shadow-lg`}
     >
       {keyCode}
     </button>
