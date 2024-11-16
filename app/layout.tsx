@@ -37,15 +37,19 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <header className="sticky top-0 z-50 w-full border-b border-border flex justify-between bg-background p-2">
-            <MenuSheet />
-            <ModeToggle />
+          <header className="sticky top-0 z-50 w-full border-b border-border flex justify-between bg-background">
+            <div className="max-w-3xl m-auto flex w-full justify-between p-2 px-4">
+              <MenuSheet />
+              <ModeToggle />
+            </div>
           </header>
           <div className="min-h-full">{children}</div>
-          <footer className="sticky bottom-0 w-full border-t border-border bg-background p-2">
-            <p className="text-sm text-gray-500">
-              &copy; {new Date().getFullYear()} Jeff Thomas
-            </p>
+          <footer className="sticky bottom-0 w-full border-t border-border bg-background">
+            <div className="max-w-3xl m-auto flex w-full justify-between p-2 px-4">
+              <p className="text-sm text-gray-500">
+                &copy; {new Date().getFullYear()} Jeff Thomas
+              </p>
+            </div>
           </footer>
         </ThemeProvider>
       </body>

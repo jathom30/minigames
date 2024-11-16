@@ -17,7 +17,7 @@ export default function SimonLayout({
   const pathname = usePathname();
 
   return (
-    <div className="space-y-2 p-4">
+    <div className="space-y-2 p-4 max-w-3xl m-auto">
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
